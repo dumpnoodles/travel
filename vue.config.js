@@ -1,4 +1,7 @@
 const path = require('path');
+const cityData = require('./mock/city.json');
+const detailData = require('./mock/detail.json');
+const indexData = require('./mock/index.json');
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -33,6 +36,24 @@ module.exports = {
       errors: true
     },
     before: app => {
+      app.get('/api/cityData', function (req, res) {
+        res.json({
+          errno: 0,
+          data: cityData
+        })
+      })
+      app.get('/api/detailData', function (req, res) {
+        res.json({
+          errno: 0,
+          data: detailData
+        })
+      })
+      app.get('/api/indexData', function (req, res) {
+        res.json({
+          errno: 0,
+          data: indexData
+        })
+      })
     }
   },
   configureWebpack: (config) => {
@@ -41,7 +62,8 @@ module.exports = {
       alias: {
         'vue': 'vue/dist/vue.js',
         '@': path.resolve(__dirname, './src'),
-        'styles': path.resolve(__dirname, './src/assets/styles')
+        'styles': path.resolve(__dirname, './src/assets/styles'),
+        'api': path.resolve(__dirname, './src/api')
       }
     }
   },
