@@ -63,7 +63,8 @@ module.exports = {
         'vue': 'vue/dist/vue.js',
         '@': path.resolve(__dirname, './src'),
         'styles': path.resolve(__dirname, './src/assets/styles'),
-        'api': path.resolve(__dirname, './src/api')
+        'api': path.resolve(__dirname, './src/api'),
+        'common': path.resolve(__dirname, './src/common')
       }
     }
   },
